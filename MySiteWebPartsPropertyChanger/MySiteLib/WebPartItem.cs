@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MySiteLib
+﻿namespace MySiteLib
 {
+    /// <summary>
+    /// Represents the webpart 
+    /// </summary>
     public class WebPartItem
     {
+        #region Private Variables
+
         private string _title;
         private string _id;
         private string _typeName;
-        
+
+        #endregion
+
+        #region Properties
+
         public string Title
         {
             get
@@ -48,6 +53,9 @@ namespace MySiteLib
             }
         }
 
+        #endregion 
+
+        #region Public Methods
 
         public WebPartItem(string title, string id,string typename)
         {
@@ -60,6 +68,8 @@ namespace MySiteLib
         {
             return Title;
         }
+
+        #endregion
 
     }
 }

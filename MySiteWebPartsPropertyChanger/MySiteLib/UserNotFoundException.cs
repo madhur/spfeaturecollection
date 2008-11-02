@@ -1,17 +1,17 @@
-﻿using System;
+﻿
 
 namespace MySiteLib
 {
     /// <summary>
-    /// Exception class for the My Site Does not Exist
+    /// Exception class for User not found exceptional case
     /// </summary>
-    public class MySiteDoesNotExistException:SystemException
+    public class UserNotFoundException:System.SystemException
     {
         public override string Message
         {
             get
             {
-                return Constants.mySiteException;
+                return Constants.userNotFoundException;
             }
         }
 

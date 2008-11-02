@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using Microsoft.SharePoint;
 using Microsoft.Office.Server;
-using Microsoft.Office.Server.Administration;
 using Microsoft.Office.Server.UserProfiles;
 using System.Web.UI.WebControls.WebParts;
 using Microsoft.SharePoint.WebPartPages;
@@ -13,13 +11,26 @@ using System.Reflection;
 
 namespace MySiteLib
 {
+    /// <summary>
+    /// Library class for common functions related to MySite
+    /// </summary>
     public class MySiteLib
     {
-        string _mySiteHostUrl;
-        ServerContext _context;
-        static MySiteLib _singlInstance;
+        #region Private Variables
+
+        private string _mySiteHostUrl;
+        private ServerContext _context;
+        private static MySiteLib _singlInstance;
         private static Object syncObj=new object();
 
+        #endregion
+
+        #region Public methods
+
+        /// <summary>
+        /// Initializes the server context
+        /// </summary>
+        /// <returns></returns>
         public  string Initialize()
         {
                
@@ -28,12 +39,15 @@ namespace MySiteLib
                 return _mySiteHostUrl;
 
         }
+
+        /// <summary>
+        /// Returns the singleton instance of this class
+        /// </summary>
+        /// <returns></returns>
         public static MySiteLib GetInstance()
         {
             lock (syncObj)
             {
-
-
                 if (_singlInstance == null)
                 {
                     _singlInstance = new MySiteLib();
@@ -44,15 +58,15 @@ namespace MySiteLib
 
                     return _singlInstance;
                 }
-                else
-                {
-                    return _singlInstance;
-                }
+                return _singlInstance;
             }
-            
-
         }
 
+        /// <summary>
+        /// Propogates the changes to all user's MySite
+        /// </summary>
+        /// <param name="dtChanges"></param>
+        /// <returns></returns>
         public string CommitChanges(DataTable dtChanges)
         {
             UserProfileManager profileManager = new UserProfileManager(_context);
@@ -69,15 +83,15 @@ namespace MySiteLib
                 using (SPWeb myWeb = mySite.OpenWeb())
                 {
                     string defaultFileName;
-                    if (ConfigurationSettings.AppSettings["DefaultFile"] != null)
+                    if (ConfigurationSettings.AppSettings[Constants.defaultFileSettings] != null)
                     {
-                        defaultFileName = ConfigurationSettings.AppSettings["DefaultFile"];
+                        defaultFileName = ConfigurationSettings.AppSettings[Constants.defaultFileSettings];
                         if (string.IsNullOrEmpty(defaultFileName))
-                            defaultFileName = "default.aspx";
+                            defaultFileName = Constants.defaultFile;
                     }
                     else
                     {
-                        defaultFileName = "default.aspx";
+                        defaultFileName = Constants.defaultFile;
                     }
                     SPFile defaultFile;
                     try
@@ -86,11 +100,9 @@ namespace MySiteLib
                     }
                     catch (UnauthorizedAccessException)
                     {
-                        errors.AppendFormat("Unauthorized for {0}\n", profile.PersonalUrl);
+                        errors.AppendFormat(Constants.unauthorizedExceptionError, profile.PersonalUrl);
                         continue;
                     }
-
-                    WebPartManager wpm = new WebPartManager();
 
                     SPLimitedWebPartManager lmWpm = defaultFile.GetLimitedWebPartManager(PersonalizationScope.Shared);
 
@@ -108,7 +120,7 @@ namespace MySiteLib
                             }
                             catch (TargetInvocationException)
                             {
-                                errors.AppendFormat("Invocation Exception for property {0} on {1}\n", propName, wp.Title);
+                                errors.AppendFormat(Constants.invocationExceptionError, propName, wp.Title);
 
 
 
@@ -133,23 +145,33 @@ namespace MySiteLib
     
 
 
-
+        /// <summary>
+        /// Returns the list of webparts in mysite.
+        /// </summary>
+        /// <returns></returns>
         public SPLimitedWebPartCollection GetWebPartsList()
         {
-            string userAccount=string.Empty;
+            string userAccount;
             UserProfileManager profileManager = new UserProfileManager(_context);
-            if (ConfigurationSettings.AppSettings["UserAccount"] != null)
+            if (ConfigurationSettings.AppSettings[Constants.userAccountSetting] != null)
             {
-                userAccount = ConfigurationSettings.AppSettings["UserAccount"];
+                userAccount = ConfigurationSettings.AppSettings[Constants.userAccountSetting];
                 if (string.IsNullOrEmpty(userAccount))
-                    userAccount = System.Environment.UserName;
+                    userAccount = Environment.UserName;
             }
             else
             {
-                userAccount = System.Environment.UserName;
+                userAccount = Environment.UserName;
             }
-
-            UserProfile defProfile=profileManager.GetUserProfile(userAccount);
+            UserProfile defProfile;
+            try
+            {
+                defProfile = profileManager.GetUserProfile(userAccount);
+            }
+            catch (Microsoft.Office.Server.UserProfiles.UserNotFoundException)
+            {
+                throw new UserNotFoundException();
+            }
 
             if (defProfile.PersonalSite == null)
             {
@@ -162,28 +184,25 @@ namespace MySiteLib
             using (SPWeb myWeb = mySite.OpenWeb())
             {
                 string defaultFileName;
-                if (ConfigurationSettings.AppSettings["DefaultFile"] != null)
+                if (ConfigurationSettings.AppSettings[Constants.defaultFileSettings] != null)
                 {
-                    defaultFileName = ConfigurationSettings.AppSettings["DefaultFile"];
+                    defaultFileName = ConfigurationSettings.AppSettings[Constants.defaultFileSettings];
                     if (string.IsNullOrEmpty(defaultFileName))
-                        defaultFileName = "default.aspx";
+                        defaultFileName = Constants.defaultFile;
                 }
                 else
                 {
-                    defaultFileName = "default.aspx";
+                    defaultFileName = Constants.defaultFile;
                 }
 
                 SPFile defaultFile = myWeb.Files[defaultFileName];
 
-                WebPartManager wpm = new WebPartManager();
                 SPLimitedWebPartManager lmWpm= defaultFile.GetLimitedWebPartManager(PersonalizationScope.Shared);
 
                 return lmWpm.WebParts;
             }
-
-            return null;
-
         }
+        #endregion
 
 
     }
