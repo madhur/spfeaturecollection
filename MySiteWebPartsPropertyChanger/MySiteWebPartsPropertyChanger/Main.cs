@@ -348,5 +348,10 @@ namespace MySiteWebPartsPropertyChanger
             
           
         }
+
+        private void lstWebParts_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

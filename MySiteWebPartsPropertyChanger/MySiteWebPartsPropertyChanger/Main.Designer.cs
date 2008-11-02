@@ -34,7 +34,6 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.lstWebParts = new System.Windows.Forms.ListBox();
             this.dgProperties = new System.Windows.Forms.DataGridView();
-            this.trvServer = new System.Windows.Forms.TreeView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.prgBar = new System.Windows.Forms.ProgressBar();
@@ -86,6 +85,7 @@
             this.lstWebParts.Name = "lstWebParts";
             this.lstWebParts.Size = new System.Drawing.Size(161, 381);
             this.lstWebParts.TabIndex = 4;
+            this.lstWebParts.SelectedIndexChanged += new System.EventHandler(this.lstWebParts_SelectedIndexChanged_1);
             // 
             // dgProperties
             // 
@@ -96,14 +96,6 @@
             this.dgProperties.Name = "dgProperties";
             this.dgProperties.Size = new System.Drawing.Size(395, 375);
             this.dgProperties.TabIndex = 5;
-            // 
-            // trvServer
-            // 
-            this.trvServer.Location = new System.Drawing.Point(701, 83);
-            this.trvServer.Name = "trvServer";
-            this.trvServer.Size = new System.Drawing.Size(121, 97);
-            this.trvServer.TabIndex = 6;
-            this.trvServer.Visible = false;
             // 
             // label2
             // 
@@ -125,7 +117,7 @@
             // 
             // prgBar
             // 
-            this.prgBar.Location = new System.Drawing.Point(238, 571);
+            this.prgBar.Location = new System.Drawing.Point(218, 511);
             this.prgBar.Name = "prgBar";
             this.prgBar.Size = new System.Drawing.Size(395, 23);
             this.prgBar.TabIndex = 9;
@@ -144,12 +136,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 617);
+            this.ClientSize = new System.Drawing.Size(668, 539);
             this.Controls.Add(this.lblErrors);
             this.Controls.Add(this.prgBar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.trvServer);
             this.Controls.Add(this.dgProperties);
             this.Controls.Add(this.lstWebParts);
             this.Controls.Add(this.btnReset);
@@ -174,7 +165,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.ListBox lstWebParts;
         private System.Windows.Forms.DataGridView dgProperties;
-        private System.Windows.Forms.TreeView trvServer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ProgressBar prgBar;
