@@ -1,0 +1,12 @@
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\MySiteLib.dll
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\MySiteLib.pdb
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\Microsoft.SharePoint.Search.dll
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\Microsoft.Office.Server.Search.dll
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\Microsoft.SharePoint.Portal.SingleSignon.dll
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\Microsoft.SharePoint.Search.xml
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\Microsoft.Office.Server.Search.xml
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\Microsoft.SharePoint.Portal.SingleSignon.xml
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\bin\Debug\ssocli.dll
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\obj\Debug\ResolveAssemblyReference.cache
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\obj\Debug\MySiteLib.dll
+C:\SPFeatureCollection\MySiteWebPartsPropertyChanger\MySiteLib\obj\Debug\MySiteLib.pdb

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>Microsoft.SharePoint.Search</name>
+	</assembly>
+	<members>
+		<member name="T:Microsoft.SharePoint.Search.Administration.SPSearchService">
+			<summary>Represents a search service installed on one or more servers in the server farm.</summary>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchService.CrawlAccount">
+			<summary>Gets or sets a string containing the crawl account name.</summary>
+			<returns>A string containing the crawl account name.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchService.MaxBackupDuration">
+			<summary>Gets or sets the interval, in minutes, from the time the backup operation started for the Search in Microsoft Windows SharePoint Services content index, and when the Search services will resume.</summary>
+			<returns>A 32-bit integer representing the duration, in minutes.</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.Delete">
+			<summary>Removes the object from the collection and the server farm.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.Update">
+			<summary>Causes the service instance to save its state and propagate changes to all machines in the farm.</summary>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.Description">
+			<summary>Gets the description of the service that is used in the Administration user interface.</summary>
+			<returns>A string that contains a description of the service.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.DisplayName">
+			<summary>Gets the display name that describes the persisted object instance within the administrative user interface.</summary>
+			<returns>A string that contains the name.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.ManageLink">
+			<summary>Gets a link object that represents the action that manages the service on the Services on Server page in SharePoint Central Administration.</summary>
+			<returns>An <see cref="T:Microsoft.SharePoint.Administration.SPActionLink"></see> object that represents the action.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.ProvisionAutoStart">
+			<summary>Gets a Boolean value that indicates whether the Windows service is set to start automatically when it is enabled during provisioning.</summary>
+			<returns>true if the Windows service is set to start automatically; otherwise, false.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.ProvisionLink">
+			<summary>Gets a link object that represents the action that starts the service on the Services on Server page in SharePoint Central Administration.</summary>
+			<returns>An <see cref="T:Microsoft.SharePoint.Administration.SPActionLink"></see> object that represents the action.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.ProvisionUpdateStatus">
+			<summary>Gets a Boolean value that indicates whether the object status is set to Online when the <see cref="M:Microsoft.SharePoint.Administration.SPServiceInstance.Provision"></see> method is called.</summary>
+			<returns>true if the status is set to Online; otherwise, false.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.Roles">
+			<summary>Gets a list of the roles to which the service instance belongs, for classification on the Services on Server page in SharePoint Central Administration.</summary>
+			<returns>A System.Collections.Generic.ICollection&lt;string&gt; that contains the list of roles, which, by default, includes SingleServer and WebFrontEnd.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.SystemService">
+			<summary>Gets a Boolean value that indicates whether the service is a system service.</summary>
+			<returns>true if the service is a system service; otherwise, false.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.TypeName">
+			<summary>Gets the display name that describes the service instance in the Administration user interface.</summary>
+			<returns>A string that contains the name of the service instance.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Search.Administration.SPSearchServiceInstance.UnprovisionLink">
+			<summary>Gets a link object that represents the action that stops the service on the Services on Server page in SharePoint Central Administration.</summary>
+			<returns>An <see cref="T:Microsoft.SharePoint.Administration.SPActionLink"></see> object that represents the action.</returns>
+		</member>
+	</members>
+</doc>

@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>Microsoft.SharePoint.Portal.SingleSignon</name>
+	</assembly>
+	<members>
+		<member name="T:Microsoft.SharePoint.Portal.Administration.SsoDatabase">
+			<summary>This class and its members are reserved for internal use and are not intended to be used in your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoDatabase.#ctor">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoDatabase.#ctor(System.String,Microsoft.SharePoint.Administration.SPDatabaseServiceInstance)">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.Administration.SsoService">
+			<summary>This class and its members are reserved for internal use and are not intended to be used in your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoService.#ctor">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoService.#ctor(System.String,Microsoft.SharePoint.Administration.SPFarm)">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.Administration.SsoService.ServiceName">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.Administration.SsoServiceInstance">
+			<summary>This class and its members are reserved for internal use and are not intended to be used in your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoServiceInstance.#ctor">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoServiceInstance.#ctor(Microsoft.SharePoint.Administration.SPServer,Microsoft.SharePoint.Portal.Administration.SsoService)">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoServiceInstance.#ctor(System.String,Microsoft.SharePoint.Administration.SPServer,Microsoft.SharePoint.Portal.Administration.SsoService)">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoServiceInstance.Provision">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoServiceInstance.Synchronize">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.Administration.SsoServiceInstanceCollection">
+			<summary>This class and its members are reserved for internal use and are not intended to be used in your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.Administration.SsoServiceInstanceCollection.#ctor(Microsoft.SharePoint.Administration.SPServer)">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Application">
+			<summary>Manages enterprise application definitions, and exposes methods to add, get, and delete enterprise application definitions.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.#ctor">
+			<summary>Initializes a new instance of the Application class.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.AddApplication(Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationInfo,Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationField[],Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationCreationDisposition)">
+			<summary>Adds or modifies an enterprise application definition.</summary>
+			<param name="rgAppFields">An ApplicationField data type that contains the fields of an enterprise application definition. The maximum number of allowed ApplicationField data types is five. You must specify at least one ApplicationField data type.</param>
+			<param name="appcd">One of the ApplicationCreationDisposition values that specifies how the enterprise application definition is created: If the enterprise application definition does not exist, it is created regardless of ApplicationCreationDisposition. If the enterprise application definition exists and you specify ApplicationCreationDisposition. Overwrite and the ApplicationType data type is the same, the enterprise application definition is overwritten.</param>
+			<param name="App">An ApplicationInfo object that specifies the enterprise application definition that is added.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.DeleteApplication(System.String)">
+			<summary>Deletes the enterprise application definition and all associated credentials.</summary>
+			<param name="strApplicationName">The name of the enterprise application definition. This is not the enterprise application definition friendly name. If strApplicationName does not exist in the single sign-on database, a SingleSignonException error is thrown. The maximum number of allowed characters is 128.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.GetApplication(System.String,Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationInfo@)">
+			<summary>Gets the enterprise application definition.</summary>
+			<param name="strApplicationName">The name of the enterprise application definition associated with this NT Domain\Group account name. This is not the enterprise application definition friendly name. The string must be at least 1 character and no more than 128 characters long. If strApplicationName parameter does not exist in the single sign-on database, a SingleSignonException error is thrown.</param>
+			<param name="App">The ApplicationInfo object that contains the enterprise application definition.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.GetGroupApplicationGroup(System.String,System.String@)">
+			<summary>Gets a Microsoft Windows NT Domain\Group account associated with a group enterprise application definition.</summary>
+			<param name="strApplicationName">The name of the enterprise application definition associated with this NT Domain\Group account name. This is not the enterprise application definition friendly name. The maximum number of allowed characters is 128.</param>
+			<param name="strGroupName">The SSO group name.</param>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationCollection">
+			<summary>Enumerates the enterprise application definitions.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationCollection.#ctor">
+			<summary>Initializes a new instance of the ApplicationCollection class.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationCreationDisposition">
+			<summary>Indicates whether to create an application or overwrite an existing application.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationCreationDisposition.CreateNew">
+			<summary>Creates a new application.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationCreationDisposition.Overwrite">
+			<summary>Overwrites an existing application.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationField">
+			<summary>Identifies a field in the enterprise application definition.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationField.#ctor(System.String,System.Boolean)">
+			<summary>Initializes a new instance of the ApplicationField class.</summary>
+			<param name="strField">The application field name. The string must contain at least 1 character and no more than 128 characters.</param>
+			<param name="fMask">true if the field is masked; otherwise, false.</param>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationFieldCollection">
+			<summary>Enumerates the fields of the enterprise application definition.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationFieldCollection.#ctor(System.String)">
+			<summary>Initializes a new instance of the ApplicationFieldCollection class.</summary>
+			<param name="strApp">String that contains the enterprise application definition. This is not the enterprise application definition friendly name. The string must contain at least 1 character and no more than 128 characters.</param>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationInfo">
+			<summary>Identifies an enterprise application definition.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationInfo.#ctor(System.String,System.String,Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType,System.String)">
+			<summary>Initializes a new instance of the ApplicationInfo class.</summary>
+			<param name="strApplicationName">The name of the enterprise application definition. The maximum number of allowed characters is 128.</param>
+			<param name="strApplicationFriendlyName">The friendly name of the enterprise application definition. The maximum number of allowed characters is 128.</param>
+			<param name="AppType">One of the ApplicationType values that specifies the type of enterprise application definition.</param>
+			<param name="strEmailContact">The e-mail contact for the enterprise application definition. The maximum number of allowed characters is 128.</param>
+		</member>
+		<member name="P:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationInfo.ApplicationFriendlyName">
+			<summary>Gets the friendly name of the enterprise application definition.</summary>
+			<returns>The friendly name of the enterprise application definition.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationInfo.ApplicationName">
+			<summary>Gets the name of the enterprise application definition.</summary>
+			<returns>The name of the enterprise application definition.</returns>
+		</member>
+		<member name="P:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationInfo.ContactName">
+			<summary>Gets the name of the person identified as the contact for the enterprise application definition.</summary>
+			<returns>The name of the person identified as the contact for the enterprise application definition.</returns>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType">
+			<summary>Indicates the single sign-on (SSO) application type.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType.Group">
+			<summary>Represents a group application.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType.GroupWindows">
+			<summary>Represents a group application that uses Windows authentication.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType.Individual">
+			<summary>Represents an individual application.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType.IndividualWindows">
+			<summary>Represents a sensitive group application.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType.SensitiveGroup">
+			<summary>Represents a sensitive group application.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Application.ApplicationType.SensitiveGroupWindows">
+			<summary>Represents a sensitive group application that uses Windows authentication.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Configuration">
+			<summary>This class and its members are reserved for internal use and are not intended to be used in your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Configuration.#ctor">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Configuration.MinimumSupportedSqlServerVersion">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Configuration.ConfigureSecretServer(System.String,System.String,System.String,System.String,System.UInt32,System.UInt32)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Configuration.ConfigureSingleSignonServer(System.String,System.String)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Configuration.GenerateMasterSecret(System.Boolean)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Configuration.RestoreMasterSecret(System.Byte[],System.Boolean)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Credentials">
+			<summary>This class and its members are reserved for internal use and are not intended to be used in your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.#ctor">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.DeleteAllUserCredentials(System.String)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.DeleteUserCredentials(System.String,System.String)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.GetCredentials(System.UInt32,System.String,System.String[]@)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.GetCredentialsUsingTicket(System.UInt32,System.String,System.String,System.String[]@)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.GetSensitiveCredentials(System.UInt32,System.String,System.String[]@)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.ReserveCredentialTicket(Microsoft.SharePoint.Portal.SingleSignon.Credentials.SingleSignonTicketType,System.String@)">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.SetCredentials(System.UInt32,System.String,System.Object[])">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.SetGroupCredentials(System.String,System.String,System.Object[])">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.Credentials.SetUserCredentials(System.String,System.String,System.Object[])">
+			<summary>
+													This member is reserved for internal use and is not intended to be used directly from your code.
+												</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.Credentials.SingleSignonTicketType">
+			<summary>Reserved for internal use.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.Credentials.SingleSignonTicketType.Default">
+			<summary>Reserved for internal use.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider">
+			<summary>Represents a single sign-on (SSO) provider. Can be implemented to replace the default SSO provider.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetApplicationDefinitions">
+			<summary>Gets a list of enterprise application definitions defined for this single sign-on (SSO) provider.</summary>
+			<returns>An ApplicationInfo object containing the application definitions.</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetApplicationFields(System.String)">
+			<summary>Gets the credential fields from the enterprise application definition for the specified application.</summary>
+			<returns>An array of enterprise application definitions.</returns>
+			<param name="AppID">The application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetCredentialManagementURL(System.String)">
+			<summary>Gets the URL for managing credentials for the specified application. </summary>
+			<param name="AppID">The application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetCredentials(System.String)">
+			<summary>Gets the single sign-on (SSO) credentials for the specified application identifier. </summary>
+			<param name="AppID">The application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetCredentialsUsingTicket(System.String,System.String)">
+			<summary>Returns the credentials for the specified ticket and the specified application identifier.</summary>
+			<returns>An <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials"></see> object that represents the credentials.</returns>
+			<param name="AppID">An application ID.</param>
+			<param name="Ticket">The access token. The maximum number of allowed characters is 300.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetCurrentUser">
+			<summary>Gets the current user from the current HTTP request. If the request is authenticated with Windows authentication, this returns a UPN (user principal name).</summary>
+			<returns>The current user from the current HTTP request. If the request is authenticated with Windows authentication, this returns a UPN (user principal name).</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetSsoProviderInfo">
+			<summary>Returns the provider information.</summary>
+			<returns>An <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SsoProviderInfo"></see> object that contains the provider information.</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.GetTicket">
+			<summary>Returns a ticket that can be used later to retrieve credentials.</summary>
+			<returns>A string that contains the ticket.</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.PutIdentityOnRequest(System.Web.Services.Protocols.HttpWebClientProtocol@,System.String)">
+			<summary>Puts the appropriate identity using the policy of the specified application on the outbound HTTP request.</summary>
+			<param name="AppID">An application ID.</param>
+			<param name="request">The outbound HTTP request.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.ISsoProvider.PutIdentityOnRequestUsingTicket(System.Web.Services.Protocols.HttpWebClientProtocol@,System.String,System.String)">
+			<summary>Puts the appropriate identity using the policy of the specified application on the outbound HTTP request using the ticket.</summary>
+			<param name="AppID">An application ID.</param>
+			<param name="request">The outbound HTTP request.</param>
+			<param name="Ticket">The access token. The maximum number of allowed characters is 300.</param>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SingleSignonCredsNotFoundException">
+			<summary>Represents an exception that is thrown when SharePoint cannot find the requested credentials in the Single Signon database.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SingleSignonException">
+			<summary>Instantiates an exception from the Microsoft Single Sign-On service (SSOSrv) with a specific error code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SingleSignonException.#ctor(System.Int32)">
+			<param name="i32Status">The error code returned from the Microsoft Single Sign-On service (SSOSrv).</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SingleSignonException.#ctor(System.Int32,System.Exception)">
+			<param name="i32Status">The error code returned from the Microsoft Single Sign-On service (SSOSrv).</param>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider">
+			<summary>Represents the default single sign-on (SSO) provider that is included with Microsoft Office SharePoint Server 2007. It is the Office SharePoint Server 2007 implementation of the ISsoProvider interface.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.#ctor">
+			<summary>Initializes a new instance of the <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider"></see> class.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetApplicationDefinitions">
+			<summary>Gets a list of enterprise application definitions defined for this single sign-on (SSO) provider.</summary>
+			<returns>An array of enterprise application definitions.</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetApplicationFields(System.String)">
+			<summary>Gets the credential fields from the enterprise application definition for the specified application.</summary>
+			<returns>Credential fields for the specified application.</returns>
+			<param name="AppID">An application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetApplicationInfo(System.String)">
+			<summary>Gets the enterprise application definition for the specified application.</summary>
+			<returns>A single enterprise application definition.</returns>
+			<param name="AppID">The Application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetCredentialManagementURL(System.String)">
+			<summary>Gets the URL for managing credentials for the specified application.</summary>
+			<returns>The URL for managing credentials for the specified application.</returns>
+			<param name="AppID">An Application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetCredentials(System.String)">
+			<summary>Returns the single sign-on (SSO) credentials for the specified application.</summary>
+			<returns>Sensitive credentials are not returned. The SSO provider obtains the correct identity for the current user from the current HTTP request.</returns>
+			<param name="AppID">An application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetCredentialsUsingTicket(System.String,System.String)">
+			<summary>Returns the credentials for the specified ticket and the specified application identifier.</summary>
+			<returns>An SsoCredentials object that represents the credentials.</returns>
+			<param name="AppID">An application ID.</param>
+			<param name="Ticket">The access token. The maximum number of allowed characters is 300.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetCurrentUser">
+			<summary>Gets the current user from the current HTTP request. If the request is authenticated with Windows authentication, this returns a UPN (user principal name).</summary>
+			<returns>The current user from the current HTTP request. If the request is authenticated with Windows authentication, this returns a UPN (user principal name). </returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetRestrictedCredentials(System.String)">
+			<summary>Gets the sensitive single sign-on SSO credentials for the specified application.</summary>
+			<returns>An <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials"></see> object that represents the sensitive credentials.</returns>
+			<param name="AppID">An application ID.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetSsoProviderInfo">
+			<summary>Gets the provider information.</summary>
+			<returns>An <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SsoProviderInfo"></see> object that contains the provider information.</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.GetTicket">
+			<summary>Gets a ticket that can be used later to retrieve credentials.</summary>
+			<returns>A string that contains the ticket.</returns>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.PutIdentityOnRequest(System.Web.Services.Protocols.HttpWebClientProtocol@,System.String)">
+			<summary>Puts the appropriate identity using the policy of the specified application on the outbound HTTP request.</summary>
+			<param name="AppID">An application ID.</param>
+			<param name="request">The outbound HTTP request.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider.PutIdentityOnRequestUsingTicket(System.Web.Services.Protocols.HttpWebClientProtocol@,System.String,System.String)">
+			<summary>Puts the appropriate identity using the policy of the specified application on the outbound HTTP request using the ticket.</summary>
+			<param name="AppID">An application ID.</param>
+			<param name="request">The outbound HTTP request.</param>
+			<param name="Ticket">The access token. The maximum number of allowed characters is 300.</param>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SSOCanaryChecker">
+			<summary>Represents a Microsoft Single Sign-On service (SSOSrv) canary.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SSOCanaryChecker.AddCanary(System.Web.UI.Page)">
+			<summary>Adds a canary.</summary>
+			<param name="page">The page to add.</param>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants">
+			<summary>This class and its members are reserved for internal use and are not intended to be used in your code.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.#ctor">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.CONFIG_PROP_AdminGroup">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.CONFIG_PROP_ApplicationManagerGroup">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.CONFIG_PROP_DataBase">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.CONFIG_PROP_PurgeAuditDays">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.CONFIG_PROP_SecretServer">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.CONFIG_PROP_SQLServer">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.CONFIG_PROP_TicketTimeOutMin">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.DEFAULT_PURGE_AUDIT_DAYS">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.DEFAULT_TICKET_TIMEOUT_MIN">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.FLAGS_GET_CREDS_FROM_CACHE">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.FLAGS_GET_CREDS_FROM_STORE">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.FLAGS_SET_CREDS_IN_CACHE">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.FLAGS_SET_CREDS_IN_STORE">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_AFF_APP_GRP_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_APPLICATION_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_AUDIT_PURGE_DAYS">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_CRED_FIELD">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_EMAIL_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_FIELD_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_FRIENDLY_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_PRINCIPAL_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_SS_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_SSO_ADMIN_GRP_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_SSO_DB_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_SSO_SQL_SERVER_NAME">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MAX_TICKET_TIMEOUT_MIN">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MIN_AUDIT_PURGE_DAYS">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.MIN_TICKET_TIMEOUT_MIN">
+			<summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction">
+			<summary>Identifies the service action that was recorded in the single sign-on (SSO) database. </summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.AddApplication">
+			<summary>An attempt was made to add an enterprise application definition.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.AuthenticateSSOAdmin">
+			<summary>SSOSrv attempted to authenticate a user with single sign-on rights that called into SSOSrv.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.AuthenticateSSOUser">
+			<summary>SSOSrv attempted to authenticate a user that called into SSOSrv.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.ConfigureSecretServer">
+			<summary>An attempt was made to configure the server running SSOSrv.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.ConfigureSingleSignonServer">
+			<summary>An attempt was made to configure the single sign-on server.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.DeleteApplication">
+			<summary>An attempt was made to delete an enterprise application definition.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.DeleteCredentials">
+			<summary>An attempt was made to delete credentials.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.DoesMasterSecretExist">
+			<summary>An attempt was made to determine if the encryption key exists.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GenerateMasterSecret">
+			<summary>An attempt was made to generate the encryption key.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetApplication">
+			<summary>An attempt was made to retrieve an enterprise application definition.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetApplicationFields">
+			<summary>An attempt was made to retrieve the fields of an enterprise application definition.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetApplicationManagerConfigProperty">
+			<summary>An attempt was made to retrieve the user name of the person with rights to manage the enterprise application definition.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetApplications">
+			<summary>An attempt was made to retrieve all enterprise application definitions.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetConfigurationProperty">
+			<summary>An attempt was made to retrieve a configuration property.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetCredentials">
+			<summary>An attempt was made to retrieve credentials.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetCredentialsUsingTicket">
+			<summary>An attempt was made to retrieve credentials using an access token.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetDBConfigProperty">
+			<summary>An attempt was made to retrieve the single sign-on database name.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetIsSSOConfiguredProperty">
+			<summary>An attempt was made to see if SSOSrv is configured.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetMasterSecret">
+			<summary>An attempt was made to retrieve the encryption key.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetPurgeAuditDaysConfigProperty">
+			<summary>An attempt was made to retrieve the value for how many days to purge audit.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetSecretServerConfigProperty">
+			<summary>An attempt was made to retrieve the name of the server running SSOSrv.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetSQLServerConfigProperty">
+			<summary>An attempt was made to retrieve the server name of the computer running Microsoft SQL Server that hosts SSOSrv.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetSSOAdminConfigProperty">
+			<summary>An attempt was made to retrieve the single sign-on user name of the person with administrator rights.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.GetTicketTimeoutConfigProperty">
+			<summary>An attempt was made to retrieve the time-out value for the access token.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.MembershipCheck">
+			<summary>A membership check was performed to see if the user that called into SSOSrv was a member of the single sign-on manager group or the application manager group.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.ReencryptCredentials">
+			<summary>The SSOSrv service was prompted to re-encrypt the credential store.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.ReserveCredentialTicket">
+			<summary>An attempt was made to reserve an access token.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.RestoreMasterSecret">
+			<summary>An attempt was made to restore the encryption key.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.SetCredentials">
+			<summary>An attempt was made to specify credentials. </summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOConstants.ServiceAction.SetGroupCredentials">
+			<summary>An attempt was made to specify credentials for a group.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentialContents">
+			<summary>Sets the type of content stored in an <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials"></see> object.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentialContents.ExtendedEvidence">
+			<summary>Set if <see cref="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials.Evidence"></see> has more information available beyond UserName and Password.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentialContents.MappedGroup">
+			<summary>Set if the application definition is a Group definition.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentialContents.Password">
+			<summary>Set if <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials"></see> contains Password.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentialContents.UserName">
+			<summary>Set if <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials"></see> contains UserName. </summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentialContents.WindowsCredentials">
+			<summary>Set if the application definition is set to Windows authentication.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials">
+			<summary>Represents an object that contains the single sign-on credentials.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials.Evidence">
+			<summary>Array of secure evidence strings returned by an SsoProvider object.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials.Password">
+			<summary>The credential password.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials.UserName">
+			<summary>The credential user name.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials.Dispose">
+			<summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials.Dispose(System.Boolean)">
+			<summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources and optionally releases the managed resources. </summary>
+			<param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SsoCredentials.Finalize">
+			<summary>Releases unmanaged resources and performs other cleanup operations before the object is reclaimed by garbage collection. </summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SsoProviderFactory">
+			<summary>Returns the current single sign-on (SSO) provider registered with Microsoft Office SharePoint Server 2007 or the default SSO provider (see <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SpsSsoProvider"></see>).</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SsoProviderInfo">
+			<summary>Provides information about the single sign-on (SSO) provider.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoProviderInfo.AssemblyName">
+			<summary>Represents the name of the providing SSO provider assembly.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoProviderInfo.Vendor">
+			<summary>Represents the SSO provider vendor.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SsoProviderInfo.Version">
+			<summary>Represents the version of the SSO provider.</summary>
+		</member>
+		<member name="T:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes">
+			<summary>Contains all of the return codes that are thrown by the <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SingleSignonException"></see> class.</summary>
+		</member>
+		<member name="M:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.#ctor">
+			<summary>Initializes a new instance of the <see cref="T:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes"></see> class.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_ACCESSDENIED">
+			<summary>Access is denied.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_ALREADY_SS">
+			<summary>The computer is already set up as a secret server.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_APPLICATION_ALREADY_EXISTS">
+			<summary>The enterprise application definition already exists.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_APPLICATION_CANNOT_OVERWRITE">
+			<summary>Unable to overwrite the enterprise application definition.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_APPLICATION_CREATION_DISPOSITION_UNKNOWN">
+			<summary>Disposition is unknown.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_APPLICATION_NOT_FOUND">
+			<summary>The enterprise application definition cannot be found.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_APPLICATION_TYPE_UNKNOWN">
+			<summary>The enterprise application definition type is unknown.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_CREDS_NOT_FOUND">
+			<summary>Credentials could not be found.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_DB_ALREADY_EXISTS">
+			<summary>The database specified already exists.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_EXCEPTION">
+			<summary>The Microsoft Single Sign-On service (SSOSrv) threw an exception.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_GET_CREDS_FLAG_UNKNOWN">
+			<summary>The get credential flag is unknown.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_INVALID_AUDIT_PURGE_DAYS">
+			<summary>The purge audit days specified are invalid.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_INVALID_NUMBER_OF_CRED_FIELDS">
+			<summary>The number of credential fields specified is invalid.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_INVALID_NUMBER_OF_CREDS">
+			<summary>The number of credentials is invalid.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_INVALID_TICKET_TIMEOUT">
+			<summary>The access token time-out specified is invalid.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_MASTER_SECRET_NOT_EXIST">
+			<summary>The encryption key does not exist.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_REENCRYPTING">
+			<summary>SSOSrv is reencrypting the single sign-on database.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_SECRET_ALREADY_EXISTS">
+			<summary>The base system key already exists.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_SET_CREDS_FLAG_UNKNOWN">
+			<summary>The set credential flag is unknown.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_SHAREPOINT_VROOT_CANNOT_BE_FOUND">
+			<summary>The Vroot for SharePoint Central Administration, used for Microsoft SharePoint Server 2007, could not be found.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_SSO_DB_NOT_INSTALLED">
+			<summary>The single sign-on database is not created yet.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_SSO_NOT_CONFIGURED">
+			<summary>SSOSrv is not configured.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_SSO_NOT_INSTALLED">
+			<summary>SSOSrv is not installed.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_SSO_WRONG_VERSION">
+			<summary>Wrong single sign-on database version.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_TICKET_TYPE_UNKNOWN">
+			<summary>The access token type is unknown.</summary>
+		</member>
+		<member name="F:Microsoft.SharePoint.Portal.SingleSignon.SSOReturnCodes.SSO_E_WRONG_SS">
+			<summary>This is the wrong secret server.</summary>
+		</member>
+	</members>
+</doc>
