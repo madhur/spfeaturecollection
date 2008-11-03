@@ -112,18 +112,38 @@ namespace MySiteLib
                         foreach (DataRow changeRow in propChanges)
                         {
                             string propName = changeRow["Property"].ToString();
-
-                            System.Reflection.PropertyInfo propInfo= wp.GetType().GetProperty(propName);
+                            System.Reflection.PropertyInfo propInfo;
                             try
                             {
-                                propInfo.SetValue(wp, changeRow["Value"].ToString(), null);
+                                propInfo = wp.GetType().GetProperty(propName);
+                            }
+                            catch (AmbiguousMatchException)
+                            {
+
+                                errors.AppendFormat(Constants.AmbiguousMatchExceptionMessage, propName, wp.Title);
+                                continue;
+                            }
+
+                            try
+                            {
+                                if (propInfo.PropertyType != typeof(Int32) && propInfo.PropertyType != typeof(string) && propInfo.PropertyType != typeof(Boolean))
+                                {
+                                    Object enumObj = Enum.Parse(propInfo.PropertyType, changeRow["Value"].ToString());
+                                    propInfo.SetValue(wp,enumObj,null);
+                                }
+                                else
+                                {
+                                    propInfo.SetValue(wp, changeRow["Value"], null);
+                                }
                             }
                             catch (TargetInvocationException)
                             {
                                 errors.AppendFormat(Constants.invocationExceptionError, propName, wp.Title);
 
-
-
+                            }
+                            catch (ArgumentException)
+                            {
+                                errors.AppendFormat(Constants.argumentExceptionError, propName, wp.Title);
                             }
                             lmWpm.SaveChanges(wp);
                             

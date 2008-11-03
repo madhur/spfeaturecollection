@@ -56,6 +56,7 @@ namespace MySiteWebPartsPropertyChanger
             _changes.Columns.Add("WebPart");
             _changes.Columns.Add("Property");
             _changes.Columns.Add("Value");
+            _changes.Columns.Add("PropertyType");
 
             dtWpData = new DataSet();
             if (_mySiteObj != null)
@@ -81,7 +82,7 @@ namespace MySiteWebPartsPropertyChanger
                 dtWpData.Tables[lstWebParts.SelectedIndex].Rows[e.RowIndex]["IsDirty"] = true;
 
                 WebPartItem partItem=lstWebParts.SelectedItem as WebPartItem;
-                _changes.Rows.Add(partItem.TypeName, dgProperties["Property", e.RowIndex].Value, dgProperties["Value", e.RowIndex].Value.ToString());
+                _changes.Rows.Add(partItem.TypeName, dgProperties["Property", e.RowIndex].Value, dgProperties["Value", e.RowIndex].Value.ToString(), dgProperties["PropertyType", e.RowIndex].Value.ToString());
             }
             else
             {
@@ -108,7 +109,7 @@ namespace MySiteWebPartsPropertyChanger
             dgProperties.Columns["Assembly"].Visible = false;
             dgProperties.Columns["IsDirty"].Visible = false;
             dgProperties.Columns["Property"].ReadOnly = true;
-            
+            dgProperties.Columns["PropertyType"].Visible = false;
 
             int index = 0;
             foreach (DataRow row in dtWpData.Tables[lstWebParts.SelectedIndex].Rows)
@@ -185,6 +186,7 @@ namespace MySiteWebPartsPropertyChanger
                 dtWpData.Tables[index].Columns.Add("Value");
                 dtWpData.Tables[index].Columns.Add("Assembly");
                 dtWpData.Tables[index].Columns.Add("IsDirty");
+                dtWpData.Tables[index].Columns.Add("PropertyType");
 
                 Ref.PropertyInfo[] propInfoColl = wpPart.GetType().GetProperties();
 
@@ -204,7 +206,7 @@ namespace MySiteWebPartsPropertyChanger
                             if (browAtt.Browsable)
                             {
                                 Object value = propInfo.GetValue(wpPart, null);
-                                dtWpData.Tables[index].Rows.Add(propInfo.Name, propInfo.PropertyType, value, propInfo.PropertyType.AssemblyQualifiedName);
+                                dtWpData.Tables[index].Rows.Add(propInfo.Name, propInfo.PropertyType, value, propInfo.PropertyType.AssemblyQualifiedName,false,propInfo.PropertyType.ToString());
 
 
                                 break;
@@ -219,7 +221,7 @@ namespace MySiteWebPartsPropertyChanger
                             {
                                 Object value = propInfo.GetValue(wpPart, null);
 
-                                dtWpData.Tables[index].Rows.Add(propInfo.Name, propInfo.PropertyType, value, propInfo.PropertyType.AssemblyQualifiedName);
+                                dtWpData.Tables[index].Rows.Add(propInfo.Name, propInfo.PropertyType, value, propInfo.PropertyType.AssemblyQualifiedName,false,propInfo.PropertyType.ToString());
 
                                 break;
 
