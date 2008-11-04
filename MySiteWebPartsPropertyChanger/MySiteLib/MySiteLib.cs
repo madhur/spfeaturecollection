@@ -120,8 +120,11 @@ namespace MySiteLib
                             catch (AmbiguousMatchException)
                             {
 
-                                errors.AppendFormat(Constants.AmbiguousMatchExceptionMessage, propName, wp.Title);
-                                continue;
+                                //Issue for height and width properties
+                                propInfo = wp.GetType().GetProperty(propName, typeof(string));
+
+                                //errors.AppendFormat(Constants.AmbiguousMatchExceptionMessage, propName, wp.Title);
+                               // continue;
                             }
 
                             try
@@ -130,6 +133,11 @@ namespace MySiteLib
                                 {
                                     Object enumObj = Enum.Parse(propInfo.PropertyType, changeRow["Value"].ToString());
                                     propInfo.SetValue(wp,enumObj,null);
+                                }
+                                else if(propInfo.PropertyType==typeof(Boolean))
+                                {
+
+                                    propInfo.SetValue(wp,Boolean.Parse(changeRow["Value"].ToString()),null);
                                 }
                                 else
                                 {
