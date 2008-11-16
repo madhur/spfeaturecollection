@@ -1,0 +1,9 @@
+C:\SPFeatureCollection\SiteQuotaWebPart\SiteQuotaWebPart\bin\Debug\SiteQuotaWebPart.dll
+C:\SPFeatureCollection\SiteQuotaWebPart\SiteQuotaWebPart\bin\Debug\SiteQuotaWebPart.pdb
+C:\SPFeatureCollection\SiteQuotaWebPart\SiteQuotaWebPart\bin\Debug\Microsoft.SharePoint.Search.dll
+C:\SPFeatureCollection\SiteQuotaWebPart\SiteQuotaWebPart\bin\Debug\Microsoft.SharePoint.Search.xml
+C:\SPFeatureCollection\SiteQuotaWebPart\SiteQuotaWebPart\obj\Debug\ResolveAssemblyReference.cache
+C:\SPFeatureCollection\SiteQuotaWebPart\SiteQuotaWebPart\obj\Debug\SiteQuotaWebPart.dll
+C:\SPFeatureCollection\SiteQuotaWebPart\SiteQuotaWebPart\obj\Debug\SiteQuotaWebPart.pdb
+C:\Inetpub\wwwroot\wss\VirtualDirectories\80\bin\SiteQuotaWebPart.dll
+C:\Inetpub\wwwroot\wss\VirtualDirectories\80\bin\SiteQuotaWebPart.pdb
