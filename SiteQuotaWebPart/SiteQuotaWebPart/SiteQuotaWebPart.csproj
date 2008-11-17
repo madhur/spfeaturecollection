@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Inetpub\wwwroot\wss\VirtualDirectories\80\bin\</OutputPath>
+    <OutputPath>.\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,6 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Default.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Solution\Manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Solution\Cab.ddf" />
+    <None Include="Solution\SiteQuotaWebPart.webpart" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
